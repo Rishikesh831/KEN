@@ -1,0 +1,282 @@
+[
+  {
+    "t": "18:27:09",
+    "agent": "coord",
+    "msg": "Papa's Metformin is at 4 days, below reorder point. Opening R-101.",
+    "evidence": "stock 4d < 7d threshold",
+    "kind": "ok"
+  },
+  {
+    "t": "18:27:10",
+    "agent": "pharm",
+    "msg": "MedPlus Hyderabad (Hyderabad) is out of district for Papa (Amritsar). Prescription medicines cannot ship across a district line. Blocked.",
+    "evidence": "pharmacy district != patient district",
+    "kind": "warn"
+  },
+  {
+    "t": "18:27:11",
+    "agent": "pharm",
+    "msg": "Sharma Medicos, Amritsar: same district, in stock, Rs 840.",
+    "evidence": "district rule passed",
+    "kind": "ok"
+  },
+  {
+    "t": "18:27:12",
+    "agent": "safety",
+    "msg": "Routine refill. Checks {'rx_in_date': True, 'same_medicine': True, 'within_reserve': True}. Verdict: ACT.",
+    "evidence": "rx valid till 2027-01-15 | quote 840 <= reserve 2500",
+    "kind": "ok"
+  },
+  {
+    "t": "18:27:13",
+    "agent": "pay",
+    "msg": "Rs 840 moved from reserve to escrow. Pharmacy is not paid yet.",
+    "evidence": "txn PL-88412 [SANDBOX]",
+    "kind": "ok"
+  },
+  {
+    "t": "18:27:14",
+    "agent": "logi",
+    "msg": "Address standardised, shipment created, pickup scheduled.",
+    "evidence": "shipment DL-772310",
+    "kind": "ok"
+  },
+  {
+    "t": "18:27:15",
+    "agent": "logi",
+    "msg": "Scan: Picked Up.",
+    "evidence": "scan PICKED_UP",
+    "kind": "ok"
+  },
+  {
+    "t": "18:27:16",
+    "agent": "logi",
+    "msg": "Scan: Out For Delivery.",
+    "evidence": "scan OUT_FOR_DELIVERY",
+    "kind": "ok"
+  },
+  {
+    "t": "18:27:17",
+    "agent": "logi",
+    "msg": "Scan: Delivered.",
+    "evidence": "scan DELIVERED",
+    "kind": "ok"
+  },
+  {
+    "t": "18:27:18",
+    "agent": "pay",
+    "msg": "Delivered scan confirmed. Rs 840 released to the pharmacy.",
+    "evidence": "release PL-88412",
+    "kind": "ok"
+  },
+  {
+    "t": "18:27:19",
+    "agent": "coord",
+    "msg": "R-101 closed. Papa has 34 days of stock.",
+    "evidence": "closed with delivery evidence",
+    "kind": "ok"
+  },
+  {
+    "t": "18:27:20",
+    "agent": "intake",
+    "msg": "Voice note from Papa heard (hi), speaker verified.",
+    "evidence": "transcript: \"seene mein dard ho raha hai aur saans phoolti hai\"",
+    "kind": "ok"
+  },
+  {
+    "t": "18:27:21",
+    "agent": "safety",
+    "msg": "Red-flag symptoms. I do not diagnose or advise. Stopping all ordering, alerting people.",
+    "evidence": "matched: ['seene mein dard', 'saans phool']",
+    "kind": "stop"
+  },
+  {
+    "t": "18:27:22",
+    "agent": "coord",
+    "msg": "All open items for Papa paused (1). Reason: red flag.",
+    "evidence": "1 items -> PAUSED",
+    "kind": "stop"
+  },
+  {
+    "t": "18:27:23",
+    "agent": "family",
+    "msg": "Alerting Rishikesh and Neha together: call Papa now or contact emergency services.",
+    "evidence": "2 contacts alerted, call attempts logged",
+    "kind": "stop"
+  },
+  {
+    "t": "18:27:24",
+    "agent": "family",
+    "msg": "Rishikesh accepted in 41s. Backup stays on standby.",
+    "evidence": "owner accepted",
+    "kind": "ok"
+  },
+  {
+    "t": "18:27:25",
+    "agent": "coord",
+    "msg": "Maa's Telmisartan is at 5 days, below reorder point. Opening R-103.",
+    "evidence": "stock 5d < 7d threshold",
+    "kind": "ok"
+  },
+  {
+    "t": "18:27:26",
+    "agent": "pharm",
+    "msg": "MedPlus Hyderabad (Hyderabad) is out of district for Maa (Krishna). Prescription medicines cannot ship across a district line. Blocked.",
+    "evidence": "pharmacy district != patient district",
+    "kind": "warn"
+  },
+  {
+    "t": "18:27:27",
+    "agent": "pharm",
+    "msg": "Lakshmi Medicals, Krishna: same district, in stock, Rs 700.",
+    "evidence": "district rule passed",
+    "kind": "ok"
+  },
+  {
+    "t": "18:27:28",
+    "agent": "safety",
+    "msg": "Routine refill. Checks {'rx_in_date': True, 'same_medicine': True, 'within_reserve': True}. Verdict: ACT.",
+    "evidence": "rx valid till 2027-03-02 | quote 700 <= reserve 1660",
+    "kind": "ok"
+  },
+  {
+    "t": "18:27:29",
+    "agent": "pay",
+    "msg": "Rs 700 moved from reserve to escrow. Pharmacy is not paid yet.",
+    "evidence": "txn PL-88413 [SANDBOX]",
+    "kind": "ok"
+  },
+  {
+    "t": "18:27:30",
+    "agent": "logi",
+    "msg": "Pincode 520001 is not serviceable by courier.",
+    "evidence": "serviceability check failed",
+    "kind": "warn"
+  },
+  {
+    "t": "18:27:31",
+    "agent": "pay",
+    "msg": "Rs 700 returned to the reserve. Nothing was paid out.",
+    "evidence": "refund PL-88413 [SANDBOX]",
+    "kind": "ok"
+  },
+  {
+    "t": "18:27:32",
+    "agent": "family",
+    "msg": "Asking Rishikesh: Courier cannot reach Maa. Local pickup by a neighbour? [Accept / Pass to Neha / Snooze]",
+    "evidence": "one owner, one question",
+    "kind": "ok"
+  },
+  {
+    "t": "18:27:33",
+    "agent": "family",
+    "msg": "Rishikesh chose 'Accept'.",
+    "evidence": "owner accepted in 52s",
+    "kind": "ok"
+  },
+  {
+    "t": "18:27:34",
+    "agent": "coord",
+    "msg": "Local pickup arranged. Item stays open until handover is confirmed.",
+    "evidence": "pickup 16:30",
+    "kind": "ok"
+  },
+  {
+    "t": "18:27:35",
+    "agent": "rec",
+    "msg": "Request from Dr. Kapoor. Found 3 reports, building originals plus a one-page trend (values as printed, no interpretation).",
+    "evidence": "matched: 2026-06-12, 2026-08-18, 2026-09-24",
+    "kind": "ok"
+  },
+  {
+    "t": "18:27:36",
+    "agent": "rec",
+    "msg": "Sent to Dr. Kapoor at +91 98xxx xx210.",
+    "evidence": "delivered in 38s",
+    "kind": "ok"
+  },
+  {
+    "t": "18:27:37",
+    "agent": "coord",
+    "msg": "Papa's Metformin is at 4 days, below reorder point. Opening R-104.",
+    "evidence": "stock 4d < 7d threshold",
+    "kind": "ok"
+  },
+  {
+    "t": "18:27:38",
+    "agent": "pharm",
+    "msg": "MedPlus Hyderabad (Hyderabad) is out of district for Papa (Amritsar). Prescription medicines cannot ship across a district line. Blocked.",
+    "evidence": "pharmacy district != patient district",
+    "kind": "warn"
+  },
+  {
+    "t": "18:27:39",
+    "agent": "pharm",
+    "msg": "Sharma Medicos, Amritsar: same district, in stock, Rs 840.",
+    "evidence": "district rule passed",
+    "kind": "ok"
+  },
+  {
+    "t": "18:27:40",
+    "agent": "safety",
+    "msg": "Routine refill. Checks {'rx_in_date': True, 'same_medicine': True, 'within_reserve': True}. Verdict: ACT.",
+    "evidence": "rx valid till 2027-01-15 | quote 840 <= reserve 1660",
+    "kind": "ok"
+  },
+  {
+    "t": "18:27:41",
+    "agent": "pay",
+    "msg": "Rs 840 moved from reserve to escrow. Pharmacy is not paid yet.",
+    "evidence": "txn PL-88414 [SANDBOX]",
+    "kind": "ok"
+  },
+  {
+    "t": "18:27:42",
+    "agent": "logi",
+    "msg": "Address standardised, shipment created, pickup scheduled.",
+    "evidence": "shipment DL-772311",
+    "kind": "ok"
+  },
+  {
+    "t": "18:27:43",
+    "agent": "intake",
+    "msg": "Voice note from Papa heard (hi), speaker verified.",
+    "evidence": "transcript: \"ruk jao, abhi mat bhejo\"",
+    "kind": "ok"
+  },
+  {
+    "t": "18:27:44",
+    "agent": "intake",
+    "msg": "Stop word heard. Halting immediately.",
+    "evidence": "spoken stop / keypad 9",
+    "kind": "warn"
+  },
+  {
+    "t": "18:27:45",
+    "agent": "coord",
+    "msg": "All open items for Papa paused (1). Reason: parent paused.",
+    "evidence": "1 items -> PAUSED",
+    "kind": "stop"
+  },
+  {
+    "t": "18:27:46",
+    "agent": "logi",
+    "msg": "Shipment cancelled before pickup.",
+    "evidence": "DL-772311 CANCELLED",
+    "kind": "warn"
+  },
+  {
+    "t": "18:27:47",
+    "agent": "pay",
+    "msg": "Rs 840 returned to the reserve. Nothing was paid out.",
+    "evidence": "refund PL-88414 [SANDBOX]",
+    "kind": "ok"
+  },
+  {
+    "t": "18:27:48",
+    "agent": "family",
+    "msg": "Papa has paused this refill. Nothing was charged. Ask again tomorrow, or will you talk to them?",
+    "evidence": "approved wording",
+    "kind": "ok"
+  }
+]

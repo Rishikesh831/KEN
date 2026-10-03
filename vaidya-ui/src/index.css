@@ -1,0 +1,311 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700;800&family=Space+Mono:wght@400;700&display=swap');
+
+@import "tailwindcss";
+
+:root {
+  --paper: #FFFDF5;
+  --ink: #111111;
+  --lemon: #FFE14D;
+  --pink: #FF6B9D;
+  --mint: #4ADE9A;
+  --sky: #5CC8FF;
+  --orange: #FF8A3D;
+  --violet: #B28DFF;
+  --red: #FF3B30;
+
+  /* Agent colors */
+  --coord: #FFE14D;
+  --intake: #FF6B9D;
+  --safety: #FF3B30;
+  --pharm: #4ADE9A;
+  --pay: #5CC8FF;
+  --logi: #FF8A3D;
+  --family: #B28DFF;
+  --rec: #111111;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: 'Space Grotesk', sans-serif;
+  background-color: var(--paper);
+  color: var(--ink);
+  font-size: 15px;
+}
+
+body {
+  min-height: 100vh;
+  background-color: var(--paper);
+  background-image: radial-gradient(circle, #11111118 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* Neo-brutalist card */
+.card {
+  background: var(--paper);
+  border: 3px solid var(--ink);
+  box-shadow: 6px 6px 0 var(--ink);
+  border-radius: 4px;
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+.card:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 8px 8px 0 var(--ink);
+}
+
+/* Neo-brutalist button */
+.btn {
+  border: 3px solid var(--ink);
+  box-shadow: 4px 4px 0 var(--ink);
+  border-radius: 4px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.08s ease, box-shadow 0.08s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.btn:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0 var(--ink);
+}
+
+.btn:active {
+  transform: translate(4px, 4px);
+  box-shadow: 0 0 0 var(--ink);
+}
+
+.btn-lemon {
+  background: var(--lemon);
+  color: var(--ink);
+}
+
+.btn-red {
+  background: var(--red);
+  color: #fff;
+}
+
+.btn-mint {
+  background: var(--mint);
+  color: var(--ink);
+}
+
+.btn-paper {
+  background: var(--paper);
+  color: var(--ink);
+}
+
+.btn-ink {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+/* Mono text */
+.mono {
+  font-family: 'Space Mono', monospace;
+  font-size: 12px;
+}
+
+/* Stickers */
+.sticker {
+  display: inline-block;
+  border: 2px solid var(--ink);
+  border-radius: 3px;
+  padding: 2px 7px;
+  font-weight: 800;
+  font-size: 11px;
+  letter-spacing: 0.05em;
+}
+
+.sticker-sandbox {
+  background: var(--lemon);
+  transform: rotate(-1deg);
+}
+
+.sticker-live {
+  background: var(--mint);
+  transform: rotate(1deg);
+}
+
+.sticker-stop {
+  background: var(--red);
+  color: white;
+  transform: rotate(-2deg);
+}
+
+.sticker-act {
+  background: var(--mint);
+  transform: rotate(1.5deg);
+}
+
+.sticker-ask {
+  background: var(--lemon);
+  transform: rotate(-0.5deg);
+}
+
+/* Hazard stripe pattern */
+.hazard {
+  background: repeating-linear-gradient(
+    -45deg,
+    #FF3B30,
+    #FF3B30 10px,
+    #111 10px,
+    #111 20px
+  );
+}
+
+/* Ledger row kinds */
+.row-ok { border-left: 5px solid var(--mint); }
+.row-warn { border-left: 5px solid var(--orange); }
+.row-stop { border-left: 5px solid var(--red); }
+
+/* Nav active */
+.nav-active {
+  background: var(--lemon);
+  border: 3px solid var(--ink);
+  box-shadow: 4px 4px 0 var(--ink);
+}
+
+/* Marquee animation */
+@keyframes marquee {
+  from { transform: translateX(100%); }
+  to { transform: translateX(-100%); }
+}
+
+.marquee-inner {
+  animation: marquee 30s linear infinite;
+  white-space: nowrap;
+}
+
+/* Counter animation */
+@keyframes slam-in {
+  from { transform: translateX(-30px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+.slam-in {
+  animation: slam-in 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+/* Agent active card */
+.agent-active {
+  border: 4px solid var(--ink);
+  box-shadow: 8px 8px 0 var(--ink);
+  transform: translate(-2px, -2px);
+}
+
+@keyframes jolt {
+  0% { transform: translate(-2px, -2px) rotate(-1deg); }
+  50% { transform: translate(-2px, -2px) rotate(1deg); }
+  100% { transform: translate(-2px, -2px) rotate(0deg); }
+}
+
+.agent-active {
+  animation: jolt 0.3s ease;
+}
+
+/* Typing dots */
+@keyframes blink {
+  0%, 100% { opacity: 0.2; }
+  50% { opacity: 1; }
+}
+
+.typing-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--ink);
+  margin: 0 2px;
+  animation: blink 1.2s ease infinite;
+}
+
+.typing-dot:nth-child(2) { animation-delay: 0.2s; }
+.typing-dot:nth-child(3) { animation-delay: 0.4s; }
+
+/* Days meter bar */
+.meter-bar {
+  height: 12px;
+  border: 2px solid var(--ink);
+  border-radius: 2px;
+  overflow: hidden;
+  background: #eee;
+}
+
+/* Hard-edged focus */
+*:focus-visible {
+  outline: 4px solid var(--lemon);
+  outline-offset: 2px;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: var(--paper); border: 2px solid var(--ink); }
+::-webkit-scrollbar-thumb { background: var(--ink); }
+
+/* Input */
+input, select, textarea {
+  border: 3px solid var(--ink);
+  border-radius: 4px;
+  background: var(--paper);
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 500;
+  padding: 8px 12px;
+}
+
+input:focus, select:focus, textarea:focus {
+  outline: 4px solid var(--lemon);
+}
+
+/* Range slider */
+input[type="range"] {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 6px;
+  border: 2px solid var(--ink);
+  border-radius: 0;
+  background: var(--paper);
+  padding: 0;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  background: var(--lemon);
+  border: 3px solid var(--ink);
+  border-radius: 0;
+  cursor: pointer;
+}
+
+/* Table */
+table { border-collapse: collapse; width: 100%; }
+th, td { 
+  border: 2px solid var(--ink); 
+  padding: 8px 12px;
+  text-align: left;
+}
+th { 
+  background: var(--ink); 
+  color: var(--paper);
+  font-family: 'Space Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.05em;
+}
+tr:nth-child(even) td { background: #f5f3ea; }
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .marquee-inner { animation: none; }
+  .slam-in { animation: none; }
+  .agent-active { animation: none; }
+  .typing-dot { animation: none; opacity: 1; }
+  * { transition: none !important; }
+}
